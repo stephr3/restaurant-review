@@ -43,6 +43,5 @@ export class NewRestaurantComponent {
     userCost.value = "$";
     userRating.value = "5";
     userWaitTime.value = "";
-    console.log();
   }
 }
