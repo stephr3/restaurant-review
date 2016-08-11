@@ -3,12 +3,13 @@ import {Restaurant} from './restaurant.model';
 import {NewRestaurantComponent} from './new-restaurant.component';
 import {RestaurantComponent} from './restaurant.component';
 import {RestaurantDetailsComponent} from './restaurant-details.component';
+import {EditRestaurantDetailsComponent} from './edit-restaurant-details.component';
 import {SpecialtyPipe} from './specialty.pipe';
 
 @Component({
   selector: 'restaurant-list',
   inputs: ['restaurantList'],
-  directives: [RestaurantComponent, NewRestaurantComponent, RestaurantDetailsComponent],
+  directives: [RestaurantComponent, NewRestaurantComponent, RestaurantDetailsComponent, EditRestaurantDetailsComponent],
   pipes: [SpecialtyPipe],
   template: `
   <div>
@@ -23,10 +24,12 @@ import {SpecialtyPipe} from './specialty.pipe';
       <option>Thai</option>
       <option>Other</option>
     </select>
-    <new-restaurant (onSubmitNewRestaurant)="createRestaurant($event)"></new-restaurant>
-    <restaurant-display *ngFor="#thisRestaurant of restaurantList | specialty:filterSpecialty" [restaurant]="thisRestaurant" (click)="restaurantClicked(thisRestaurant)"></restaurant-display>
     <hr>
+    <new-restaurant (onSubmitNewRestaurant)="createRestaurant($event)"></new-restaurant>
+    <edit-restaurant-details *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant"></edit-restaurant-details>
     <restaurant-details *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant"></restaurant-details>
+    <hr>
+    <restaurant-display *ngFor="#thisRestaurant of restaurantList | specialty:filterSpecialty" [restaurant]="thisRestaurant" (click)="restaurantClicked(thisRestaurant)"></restaurant-display>
   </div>
   `
 })

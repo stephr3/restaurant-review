@@ -5,6 +5,8 @@ import {Restaurant} from './restaurant.model';
   selector: 'restaurant-details',
   inputs: ['restaurant'],
   template: `
+  <hr>
+  <h3> {{restaurant.name}} Details</h3>
     <ul>
       <li>Name: {{restaurant.name}}</li>
       <li>Specialty: {{restaurant.specialty}}</li>
