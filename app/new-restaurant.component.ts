@@ -8,7 +8,15 @@ import { Restaurant } from './restaurant.model';
     <h3>Add a New Restaurant</h3>
     <form>
       <input placeholder="Name" #newName>
-      <input placeholder="Specialty" #newSpecialty>
+      <select #newSpecialty id="newSpecialty">
+        <option>American</option>
+        <option>Mexican<option>
+        <option>Italian</option>
+        <option>Chinese</option>
+        <option>Korean</option>
+        <option>Thai</option>
+        <option>Other</option>
+      </select>
       <input placeholder="Address" #newAddress>
       <label for="newCost">Cost:</label>
       <select #newCost id="newCost">
